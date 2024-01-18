@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+}
+
+.App {
+  margin: 0 auto;
+  padding: 40px 10px;
+
+  .container {
+    max-width: 1230px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .characters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 60px;
+      column-gap: 10px;
+
+      div {
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+        background-color: white;
+        border-radius: 20px;
+
+        img {
+          width: 270px;
+          height: 270px;
+          position: relative;
+          top: -20px;
+          border-radius: 20px;
+          box-shadow: 0 10px 15px gray;
+        }
+
+        p {
+          margin: 0 0 20px 0;
+          font-weight: bold;
+          font-size: large;
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+
+  .modal-content {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+
+    .toClose {
+      position: absolute;
+      top: -23px;
+      right: -23px;
+
+      .close {
+        position: absolute;
+        right: 10px;
+        font-size: 40px;
+        cursor: pointer;
+        background-color: white;
+        border: 2px solid black;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
