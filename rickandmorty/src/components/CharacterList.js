@@ -62,6 +62,7 @@ export const CharacterList = () => {
               <p>{selectedCharacter.status}</p>
               <p>{selectedCharacter.species}</p>
               <p>{selectedCharacter.type}</p>
+              {/* <p>{selectedCharacter.type}</p> */}
             </div>
           </div>
         </div>
