@@ -36,6 +36,13 @@ export const CharacterList = () => {
     setSelectedCharacter(null);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="container">
       <div className="characters">
@@ -55,20 +62,46 @@ export const CharacterList = () => {
                 &times;
               </span>
             </div>
-            <img src={selectedCharacter.image} alt={selectedCharacter.name} />
-            <div className="info">
-              <p>{selectedCharacter.name}</p>
-              <p>{selectedCharacter.gender}</p>
-              <p>{selectedCharacter.status}</p>
-              <p>{selectedCharacter.species}</p>
-              <p>{selectedCharacter.type}</p>
-              {/* <p>{selectedCharacter.type}</p> */}
+            <div className="coontent_inner">
+              <img src={selectedCharacter.image} alt={selectedCharacter.name} />
+              <div className="info">
+                <p>
+                  <span>Name: </span>
+                  {selectedCharacter.name}
+                </p>
+                <p>
+                  <span>Gender: </span>
+                  {selectedCharacter.gender}
+                </p>
+                <p>
+                  <span>Status: </span>
+                  {selectedCharacter.status}
+                </p>
+                <p>
+                  <span>Species: </span>
+                  {selectedCharacter.species}
+                </p>
+                <p>
+                  <span>Type: </span>
+                  {selectedCharacter.type || "-"}
+                </p>
+              </div>
             </div>
           </div>
         </div>
       )}
 
-      <button onClick={() => setCurrentPage((prev) => prev + 1)}>Далее</button>
+      <button
+        onClick={() => setCurrentPage((prev) => prev + 1)}
+        className="next_page"
+      >
+        Next
+      </button>
+      {currentPage > 0 && (
+        <button onClick={scrollToTop} className="to_top">
+          To top
+        </button>
+      )}
     </div>
   );
 };
