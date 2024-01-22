@@ -43,6 +43,23 @@ export const CharacterList = () => {
     });
   };
 
+  const handleScroll = () => {
+    const isAtBottom =
+      window.innerHeight + window.scrollY >= document.body.offsetHeight;
+
+    if (isAtBottom) {
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="container">
       <div className="characters">
@@ -91,12 +108,6 @@ export const CharacterList = () => {
         </div>
       )}
 
-      <button
-        onClick={() => setCurrentPage((prev) => prev + 1)}
-        className="next_page"
-      >
-        Next
-      </button>
       {currentPage > 0 && (
         <button onClick={scrollToTop} className="to_top">
           To top
